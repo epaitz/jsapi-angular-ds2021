@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+  
+      <button mat-button [matMenuTriggerFor]="headerMenu" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+  
+      <mat-menu #headerMenu="matMenu">
+        <ng-container *ngFor="let route of routes">
+  
+          <ng-container *ngIf="route.children != null">
+            <button mat-menu-item [matMenuTriggerFor]="subMenu">
+              <span>{{route.label}}</span>
+            </button>
+            <mat-menu #subMenu="matMenu">
+              <button *ngFor="let child of route.children" 
+                mat-menu-item 
+                [routerLink]="child.fullPath" 
+                (click)="sidenavOpen(child.fullPath)">
+                <span>{{child.label}}</span>
+              </button>
+            </mat-menu>
+          </ng-container>
+  
+          <ng-container  *ngIf="route.children == null">
+            <button mat-menu-item routerLink={{route.path}}>
+              <span>{{route.label}}</span>
+            </button>
+          </ng-container>
+  
+        </ng-container>
+      </mat-menu>
+  
+      <span>ArcGIS API for JavaScript with Angular</span>
+  
+      <span style="flex: 1 1 auto"></span>
+  
+      <div fxShow="true" fxHide.lt-md>
+  
+        <button *ngFor="let route of routes" 
+            mat-button routerLink="{{route.path}}" routerLinkActive="active">
+          <span>{{route.label}}</span>
+        </button>
+  
+        <button mat-button [matMenuTriggerFor]="userMenu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+  
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item routerLink="/map/notifications">
+            <mat-icon>notifications</mat-icon>
+            <span>Notifications</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>email</mat-icon>
+            <span>Feedback</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+          </button>
+        </mat-menu>
+  
+      </div>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>

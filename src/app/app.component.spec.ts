@@ -1,35 +1,36 @@
-import { TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+    let appComponent: AppComponent;
+    let componentFixture: ComponentFixture<AppComponent>;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+        imports: [
+            RouterTestingModule
+        ],
+        declarations: [
+            AppComponent
+        ],
+        schemas: [
+            CUSTOM_ELEMENTS_SCHEMA
+        ]
+        }).compileComponents();
+    });
 
-  it(`should have as title 'jsapi-angular-ngrx-ds2021'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('jsapi-angular-ngrx-ds2021');
-  });
+    beforeEach(() => {
+        componentFixture = TestBed.createComponent(AppComponent);
+        appComponent = componentFixture.componentInstance;
+    });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('jsapi-angular-ngrx-ds2021 app is running!');
-  });
+    it('should create the app', () => {
+        expect(appComponent).toBeTruthy();
+    });
+
+    // it('should have as title \'jsapi-angular-ds2021\'', () => {
+    // expect(appComponent.title).toEqual('jsapi-angular-ds2021');
+    // });
 });

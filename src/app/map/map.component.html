@@ -1,0 +1,27 @@
+<div fxLayout="row" fxFill>
+    <app-toolbar orientation="vertical" routePath="map" settingsPath="settings" fxShow="true" fxHide.lt-md></app-toolbar>
+    <mat-sidenav-container fxFlex="1 1 auto">
+        <mat-sidenav #drawer [opened]="(sidenavOpened$ | async)" [mode]="mode" [class.is-xs]="isXs === true">
+            <div fxLayout="column" fxFill>
+                <div fxLayout="row" fxFlex="0 1 0%" style="padding: 5px 5px 0 5px; align-items: center;">
+                <div fxFlex="1 1 0%">
+                    <span style="font-size: 24px;">{{routeDataLabel}}</span>
+                </div>
+                <div fxFlex="0 1 0%">
+                    <button mat-button style="width: 100%;" (click)="sidenavClose()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+                </div>
+                <div fxFlex="1 1 0%" style="overflow-y: hidden">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+        <div fxLayout="column" fxFill style="background-color: whitesmoke; overflow: hidden">
+            <app-map-view-component></app-map-view-component>
+        </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

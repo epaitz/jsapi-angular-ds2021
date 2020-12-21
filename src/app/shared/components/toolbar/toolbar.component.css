@@ -1,0 +1,29 @@
+.mat-toolbar-row-vertical {
+    height: 100%;
+    flex-direction: column;
+}
+
+.mat-toolbar-vertical {
+    height: 100%;
+    width: 64px;
+    flex-direction: column;
+}
+
+.mat-toolbar-vertical[compact] {
+    height: 100%;
+    width: 48px;
+    flex-direction: column;
+}
+
+.mat-toolbar-multiple-rows[compact] {
+    min-height: unset;
+}
+
+.mat-toolbar-multiple-rows[compact] .mat-toolbar-row {
+    height: 100%;
+}
+
+.active {
+    box-shadow: inset 3px 0 0px 0px;
+    border-radius: 0;
+}

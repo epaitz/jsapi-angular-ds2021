@@ -1,0 +1,46 @@
+<div fxLayout="column" fxFill style="overflow: hidden">
+    <mat-toolbar [class.mat-toolbar-vertical]="orientation === 'vertical'" color="primary">
+        <mat-toolbar-row [class.mat-toolbar-row-vertical]="orientation === 'vertical'">
+
+            <ng-content *ngIf="showButtonsFromRoute === false"></ng-content>
+
+            <ng-container *ngIf="showButtonsFromRoute === true">
+                <ng-container *ngFor="let button of buttons">
+                    <ng-container *ngIf="button.visible === true">
+                        <button id={{button.id}} mat-button (click)="sidenavToggle(button.path)" 
+                                routerLink={{button.path}} title="{{button.label}}" routerLinkActive="active"
+                                style="height: 48px;">
+                            <mat-icon>{{button.icon}}</mat-icon>
+                        </button>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+
+            <button *ngIf="isOverflowVisible === true" mat-button [matMenuTriggerFor]="overflowMenu" title="Menu">
+                <mat-icon>more_horiz</mat-icon>
+            </button>
+
+            <div *ngIf="settingsButton != null" style="flex: 1 1 auto"></div>
+
+            <button *ngIf="settingsButton != null" mat-button 
+                    routerLink={{settingsButton.path}} 
+                    routerLinkActive="active" 
+                    title={{settingsButton.label}}
+                    style="height: 48px;">
+                <mat-icon>{{settingsButton.icon}}</mat-icon>
+            </button>  
+
+            <mat-menu id="overflowMenu" #overflowMenu="matMenu">
+                <ng-container *ngFor="let button of buttons">
+                    <ng-container *ngIf="button.visible === false">
+                        <button mat-menu-item>
+                            <mat-icon>{{button.icon}}</mat-icon>
+                            <span>{{button.label}}</span>
+                        </button>
+                    </ng-container>
+                </ng-container>
+            </mat-menu>
+
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

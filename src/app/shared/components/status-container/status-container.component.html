@@ -1,0 +1,43 @@
+<div *ngIf="serviceStatus?.type === 'loading' || serviceStatus?.type === 'error'" fxLayout="column" fxFill style="text-align: center; align-items: center; padding: 10px">
+
+    <div style="flex: 1 1 0%"></div>
+
+    <div *ngIf="serviceStatus.type === 'loading'"  style="flex: 0 1 0%">
+        <mat-progress-spinner 
+            strokeWidth="4" diameter="70" color="primary" mode="indeterminate">
+        </mat-progress-spinner>
+        <p>{{message}}</p>
+    </div>
+
+    <div *ngIf="serviceStatus.type === 'error'" fxLayout="column" style="flex: 0 1 0%" fxLayoutGap="10px">
+
+        <div style="flex: 0 1 0%">
+            <mat-icon color="primary" style="font-size: 42px; width: 42px; height: 42px">error</mat-icon>
+            <p>An error has occurred</p>
+        </div>
+
+        <div style="flex: 0 1 0%">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-description>
+                            Details
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <span style="font-family: monospace">{{serviceStatus.error}}</span>                
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+        <div style="flex: 0 1 0%">
+            <button mat-raised-button (click)="onRefresh()">Refresh</button>
+        </div>
+
+    </div>
+
+    <div style="flex: 1 1 0%"></div>
+
+</div>
+
+<ng-content *ngIf="serviceStatus?.type === 'content'"></ng-content>

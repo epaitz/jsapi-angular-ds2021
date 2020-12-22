@@ -32,15 +32,15 @@ There are a few configuration changes that have to me made to an Angular Project
 Add the following to the architect/build/options section of the angular.json file.
 
 ```
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "node_modules/@arcgis/core/assets",
-                "output": "/assets/"
-              },
-              "src/favicon.ico",
-              "src/assets"
-            ]
+    "assets": [
+      {
+        "glob": "**/*",
+        "input": "node_modules/@arcgis/core/assets",
+        "output": "/assets/"
+      },
+      "src/favicon.ico",
+      "src/assets"
+    ]
 ```
 
 

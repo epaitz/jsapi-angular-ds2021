@@ -21,6 +21,6 @@ The project also contains the following custom components and services
 - RouterService
 - SidenavService
 - RestResponse
-- RouteMetadata
-- ServiceStatus
+- [RouteMetadata](src/app/shared/models)
+- [ServiceStatus](src/app/shared/models)
 - [Helpers](src/app/shared/helpers)

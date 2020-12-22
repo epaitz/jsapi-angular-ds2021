@@ -24,3 +24,23 @@ The project also contains the following custom components and services
 - [RouteMetadata](src/app/shared/models)
 - [ServiceStatus](src/app/shared/models)
 - [Helpers](src/app/shared/helpers)
+
+There are a few configuration changes that have to me made to an Angular Project so that it works wtih the ArcGIS JavaScript API (v4.18).
+
+- angular.json
+
+Add the following to the architect/build/options section of the angular.json file.
+
+```
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "node_modules/@arcgis/core/assets",
+                "output": "/assets/"
+              },
+              "src/favicon.ico",
+              "src/assets"
+            ]
+```
+
+

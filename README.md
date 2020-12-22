@@ -14,13 +14,13 @@ The project touches on the following Packages
 
 The project also contains the following custom components and services
 
-- Status Container
-- Toolbar (vertical toolbar with overflow)
-- HttpClientService (service to wrap the HttpClient)
-- BaseService
-- RouterService
-- SidenavService
-- RestResponse
+- [Status Container](src/app/shared/components)
+- [Toolbar](src/app/shared/components) (vertical toolbar with overflow)
+- [HttpClientService](src/app/shared/services) (service to wrap the HttpClient)
+- [BaseService](src/app/shared/services)
+- [RouterService](src/app/shared/services)
+- [SidenavService](src/app/shared/services)
+- [RestResponse](src/app/shared/models)
 - [RouteMetadata](src/app/shared/models)
 - [ServiceStatus](src/app/shared/models)
 - [Helpers](src/app/shared/helpers)

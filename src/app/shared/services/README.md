@@ -10,4 +10,8 @@ The HttpClientService is used to centralize methods for all of the HTTP verbs (i
 
 RouterService
 
+The RouterService currently only processes the router.config into an array of RouteMetadata. If the project is reconfigured to use lazy loaded routes the processRoutes() method can be modified to parse the routes into an array of RouteMetadata so that any components using the RouterService do not have to change. 
+
 SidenavService
+
+The SidenavService is just used to control opening and closing the Angular Material Sidenav from any component. 

@@ -24,7 +24,7 @@ export class MapService extends BaseService {
         if (this.webMap == null) {
             this.updateStatus(this.webMapStatusSubject, ServiceStatusTypes.loading);
             this.httpClientService
-                .getIt('api/webmap')
+                .get('api/webmap')
                 .subscribe(
                     (webMap: any) => {
                         this.webMap = webMap;

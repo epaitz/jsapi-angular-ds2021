@@ -9,7 +9,7 @@ describe('MapService', () => {
     let mockHttpService: any;
 
     beforeEach(() => {
-        mockHttpService = jasmine.createSpyObj('mockHttpService', ['getIt']);
+        mockHttpService = jasmine.createSpyObj('mockHttpService', ['get']);
         mapService = new MapService(mockHttpService);
     });
 
@@ -17,7 +17,7 @@ describe('MapService', () => {
 
         let count = 0;
         const webMap = {};
-        mockHttpService.getIt.and.returnValue(of(webMap));
+        mockHttpService.get.and.returnValue(of(webMap));
 
         mapService
             .getWebMapStatus()

@@ -32,4 +32,6 @@ The MapFactory is a service that will initialize the WebMap and MapView and stor
 
 ## Map Service
 
-The MapService is an Angular Service used to talk to a REST API (or Portal) to fetch the WebMap JSON.
+The MapService is an Angular Service used to talk to a REST API (or Portal) to fetch the WebMap JSON. What is not shown is the ability to force the WebMap to be reloaded from the server. This might not be something we want for a WebMap but its something that would work well for the BookmarksService. Usually what I have done is add a bolean to the initialize method, for example initializeWebMap(reload = false). If reload is true then you can ignore if the current webMap is null or not and just make an HTTP call. 
+
+Another enhancement would be to not make the HTTP call if the service status is loading. No need to make a second call when the first one has not finished yet. This would require a way to cancel the HTTP call because if refresh = ture and status = loading then you need to cancel the current HTTP call and execute a new HTTP call. There is an example of how to cancle the HTTP GET in the HttpClientService. 

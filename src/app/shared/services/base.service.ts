@@ -4,7 +4,7 @@ import { ServiceStatusTypes } from '../models/service-status.types';
 
 export class BaseService {
 
-    protected updateStatus(statusSubjet: Subject<ServiceStatus>, type: ServiceStatusTypes, error = null): void {
+    protected updateStatus(statusSubjet: Subject<ServiceStatus>, type: ServiceStatusTypes, error?: any): void {
         statusSubjet.next(new ServiceStatus(type, error));
     }
 }

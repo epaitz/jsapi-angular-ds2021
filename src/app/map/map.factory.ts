@@ -42,11 +42,7 @@ export class MapFactory {
 
     private createWebMap(json: any): void {
         if (this.webMap == null) {
-
-            // The JSON from NgRx is immutable the WebMap.fromJSON() validates the JSON
-            // and removes whitespace so we are uisng parse/stringify to make a clone.
-            // This should be fixed in a future version of the JSAPI.
-            this.webMap = WebMap.fromJSON(JSON.parse(JSON.stringify(json)));
+            this.webMap = WebMap.fromJSON(json);
         }
     }
 

@@ -6,18 +6,18 @@ import { of } from 'rxjs';
 describe('MapService', () => {
 
     let mapService: MapService;
-    let mockHttpService: any;
+    let mockHttpClientService: any;
 
     beforeEach(() => {
-        mockHttpService = jasmine.createSpyObj('mockHttpService', ['get']);
-        mapService = new MapService(mockHttpService);
+        mockHttpClientService = jasmine.createSpyObj('mockHttpClientService', ['get']);
+        mapService = new MapService(mockHttpClientService);
     });
 
     it('getWebMapStatus_shouldReturnLoadingContentServiceStatus', (done) => {
 
         let count = 0;
         const webMap = {};
-        mockHttpService.get.and.returnValue(of(webMap));
+        mockHttpClientService.get.and.returnValue(of(webMap));
 
         mapService
             .getWebMapStatus()

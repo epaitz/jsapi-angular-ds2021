@@ -59,6 +59,6 @@ Don't forget to define the assetsPath in the JSAPI config.
 config.assetsPath = '/assets';
 ```
 
-I have this defined in the [app.component.ts](https://github.com/epaitz/jsapi-angular-ds2021/blob/58800b2c051dcee4af0c49532c442f7d2a44043b/src/app/app.component.ts#L11) file.
+I have this defined in the [app.component.ts](https://github.com/epaitz/jsapi-angular-ds2021/blob/f4ce1fe65c16acf17c52edb11102680d5ecfade1/src/app/app.component.ts#L11) file.
 
 
